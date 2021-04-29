@@ -36,7 +36,6 @@
     };
     const formElement = document.querySelector(".js-form");
     const amountElement = document.querySelector(".js-currencyAmount");
-    const computedValueElement = document.querySelector(".js-result");
     const selectedCurrencyElement = document.querySelector(".js-selectedCurrency");
     const tableButtonElement = document.querySelector(".js-tableButton");
 
@@ -44,14 +43,13 @@
 
     formElement.addEventListener("submit", (event) => {
         event.preventDefault();
+        const resultElement = document.querySelector(".js-formResult");
         const amount = +amountElement.value;
         const currency = selectedCurrencyElement.value;
 
         let result = convertCurrency(amount, currency);
-        computedValueElement.innerText = result.toFixed(2);
 
-        const jsResultElement = document.querySelector(".js-formResult");
-        jsResultElement.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
+        resultElement.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
     });
 
 
