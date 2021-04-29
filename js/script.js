@@ -33,26 +33,31 @@
         };
     };
 
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-currencyAmount");
+        const selectedCurrencyElement = document.querySelector(".js-selectedCurrency");
+
+        const amount = +amountElement.value;
+        const currency = selectedCurrencyElement.value;
+
+        const result = convertCurrency(amount, currency);
+        updateResultText(result, currency);
+    };
+
+    const updateResultText = (result, currency) => {
+        const resultElement = document.querySelector(".js-formResult");
+
+        resultElement.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
+    };
+
     const init = () => {
         const formElement = document.querySelector(".js-form");
         const tableButtonElement = document.querySelector(".js-tableButton");
 
         tableButtonElement.addEventListener("click", toggletable);
-
-        formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const amountElement = document.querySelector(".js-currencyAmount");
-            const selectedCurrencyElement = document.querySelector(".js-selectedCurrency");
-            const resultElement = document.querySelector(".js-formResult");
-
-            const amount = +amountElement.value;
-            const currency = selectedCurrencyElement.value;
-
-            const result = convertCurrency(amount, currency);
-
-            resultElement.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
-        });
+        formElement.addEventListener("submit", onFormSubmit);
     };
     init();
 }
