@@ -1,19 +1,4 @@
 {
-    const formElement = document.querySelector(".js-form");
-
-
-
-    const currencyAmount = document.querySelector(".js-currencyAmount");
-
-    const computedValue = document.querySelector(".js-result");
-    const selectedMark = document.querySelector(".js-currency");
-    const showResult = document.querySelector(".js-formResult");
-
-
-    const tableButton = document.querySelector(".js-tableButton");
-
-
-
     const toggletable = () => {
         const tableElement = document.querySelector(".js-table");
         const buttonText = document.querySelector(".js-buttonText");
@@ -23,51 +8,50 @@
         tableElement.classList.toggle("table--hidden");
         buttonText.innerText = buttonText.innerText === showText ? hideText : showText;
     };
-    const convertCurrency = (amount) => {
-        const euroExchangeRate = document.querySelector(".js-euroExchangeRate").innerText;
+
+    const convertCurrency = (amount, currency) => {
+        const euroExchangeRate = Number(document.querySelector(".js-euroExchangeRate").innerText);
         const poundExchangeRate = Number(document.querySelector(".js-poundExchangeRate").innerText);
         const dollarExchangeRate = Number(document.querySelector(".js-dollarExchangeRate").innerText);
         const francExchangeRate = Number(document.querySelector(".js-francExchangeRate").innerText);
-        const selectedCurrency = document.querySelector(".js-selectedCurrency").value;
-        let exchangeRate;
-        let currencyMark;
 
-        switch (selectedCurrency) {
-            case "euro":
+        let exchangeRate;
+
+        switch (currency) {
+            case "EUR":
                 exchangeRate = euroExchangeRate;
-                currencyMark = " EUR";
-                return amount / exchangeRate;
-            case "pound":
+                break;
+            case "GBP":
                 exchangeRate = poundExchangeRate;
-                currencyMark = " GBP";
-                return amount / exchangeRate;
-            case "dollar":
+                break;
+            case "USD":
                 exchangeRate = dollarExchangeRate;
-                currencyMark = " USD";
-                return amount / exchangeRate;
-            case "franc":
+                break;
+            case "CHF":
                 exchangeRate = francExchangeRate;
-                currencyMark = " CHF";
-                return amount / exchangeRate;
+                break;
         };
 
-
-        const result = amount / exchangeRate;
+        return amount / exchangeRate;
     };
+    const formElement = document.querySelector(".js-form");
+    const currencyAmount = document.querySelector(".js-currencyAmount");
+    const computedValue = document.querySelector(".js-result");
+    const selectedCurrency = document.querySelector(".js-selectedCurrency");
+    const tableButton = document.querySelector(".js-tableButton");
 
     tableButton.addEventListener("click", toggletable);
 
     formElement.addEventListener("submit", (event) => {
         event.preventDefault();
         const amount = +currencyAmount.value;
+        const currency = selectedCurrency.value;
 
-        let result = convertCurrency(amount);
+        let result = convertCurrency(amount, currency);
         computedValue.innerText = result.toFixed(2);
-        selectedMark.innerText = currencyMark;
 
         const jsResult = document.querySelector(".js-formResult");
-        jsResult.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currencyMark}`;
-
+        jsResult.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
     });
 
 
