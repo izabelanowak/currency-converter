@@ -6,7 +6,7 @@
         const hideText = "Ukryj";
 
         tableElement.classList.toggle("table--hidden");
-        buttonText.innerText = buttonText.innerText === showText ? hideText : showText;
+        buttonText.innerText === showText ? hideText : showText;
     };
 
     const convertCurrency = (amount, currency) => {
