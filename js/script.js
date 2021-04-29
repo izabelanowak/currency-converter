@@ -35,23 +35,23 @@
         return amount / exchangeRate;
     };
     const formElement = document.querySelector(".js-form");
-    const currencyAmount = document.querySelector(".js-currencyAmount");
-    const computedValue = document.querySelector(".js-result");
-    const selectedCurrency = document.querySelector(".js-selectedCurrency");
-    const tableButton = document.querySelector(".js-tableButton");
+    const amountElement = document.querySelector(".js-currencyAmount");
+    const computedValueElement = document.querySelector(".js-result");
+    const selectedCurrencyElement = document.querySelector(".js-selectedCurrency");
+    const tableButtonElement = document.querySelector(".js-tableButton");
 
-    tableButton.addEventListener("click", toggletable);
+    tableButtonElement.addEventListener("click", toggletable);
 
     formElement.addEventListener("submit", (event) => {
         event.preventDefault();
-        const amount = +currencyAmount.value;
-        const currency = selectedCurrency.value;
+        const amount = +amountElement.value;
+        const currency = selectedCurrencyElement.value;
 
         let result = convertCurrency(amount, currency);
-        computedValue.innerText = result.toFixed(2);
+        computedValueElement.innerText = result.toFixed(2);
 
-        const jsResult = document.querySelector(".js-formResult");
-        jsResult.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
+        const jsResultElement = document.querySelector(".js-formResult");
+        jsResultElement.innerHTML = `Otrzymasz: ${result.toFixed(2)} ${currency}`;
     });
 
 
