@@ -1,12 +1,12 @@
 {
-    const toggletable = () => {
+    const toggleTable = () => {
         const tableElement = document.querySelector(".js-table");
         const buttonText = document.querySelector(".js-buttonText");
         const showText = "Wyświetl";
         const hideText = "Ukryj";
 
         tableElement.classList.toggle("table--hidden");
-        buttonText.innerText === showText ? hideText : showText;
+        buttonText.innerText = tableElement.classList.contains("table--hidden") ? showText : hideText;
     };
 
     const convertCurrency = (amount, currency) => {
@@ -56,7 +56,7 @@
         const formElement = document.querySelector(".js-form");
         const tableButtonElement = document.querySelector(".js-tableButton");
 
-        tableButtonElement.addEventListener("click", toggletable);
+        tableButtonElement.addEventListener("click", toggleTable);
         formElement.addEventListener("submit", onFormSubmit);
     };
     init();
