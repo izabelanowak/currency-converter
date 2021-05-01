@@ -18,69 +18,71 @@
 </head>
 
 <body>
-    <form class="form js-form">
-        <fieldset class="form__fieldset">
-            <legend class="form__legend">Kalkulator walut</legend>
-            <p>
-                <label class="form__label">
-                    <span class="form__labelText">Kwota w złotych - PLN*:</span>
-                    <input class="js-currencyAmount form__input" type="number" min="0" max="1000000000" step="0.01"
-                        required>
-                </label>
-            </p>
-            <p>
-                <label class="form__label">
-                    <span class="form__labelText">Waluta:</span>
-                    <select class="form__select js-selectedCurrency" name="currency">
-                        <option value="EUR">Euro - EUR</option>
-                        <option value="GBP">Funt brytyjski - GBP</option>
-                        <option value="USD">Dolar amerykański - USD</option>
-                        <option value="CHF">Frank szwajcarski - CHF</option>
-                    </select>
-                </label>
-            </p>
-            <p class="form__result js-formResult">
-                Otrzymasz: <strong class="js-result">N/A</strong><span class="js-currency"> waluty</span>
-            </p>
-        </fieldset>
-        <p>
-            <button type="submit" class="form__button">Przelicz!</button>
-        </p>
-    </form>
-
     <div class="container">
-        <p>
-            <button class="table__button js-tableButton"><span class="js-buttonText">Ukryj</span> aktualne kursy
-                walut</button>
-        </p>
-        <table class="table js-table">
-            <caption class="table__caption">Aktualne kursy walut</caption>
-            <tr class="table__row">
-                <th class="table__cell table__cell--header" scope="col">Nazwa</th>
-                <th class="table__cell table__cell--header" scope="col">Waluta</th>
-                <th class="table__cell table__cell--header" scope="col">Kurs</th>
-            </tr>
-            <tr class="table__row">
-                <th class="table__cell table__cell--header" scope="row">Euro</th>
-                <td class="table__cell">EUR</td>
-                <td class="table__cell js-euroExchangeRate">4.55</td>
-            </tr>
-            <tr class="table__row">
-                <th class="table__cell table__cell--header" scope="row">Funt brytyjski</th>
-                <td class="table__cell">GBP</td>
-                <td class="table__cell js-poundExchangeRate">5.25</td>
-            </tr>
-            <tr class="table__row">
-                <th class="table__cell table__cell--header" scope="row">Dolar amerykański</th>
-                <td class="table__cell">USD</td>
-                <td class="table__cell js-dollarExchangeRate">3.81</td>
-            </tr>
-            <tr class="table__row">
-                <th class="table__cell table__cell--header" scope="row">Frank szwajcarski</th>
-                <td class="table__cell">CHF</td>
-                <td class="table__cell js-francExchangeRate">4.14</td>
-            </tr>
-        </table>
+        <form class="form js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Kalkulator walut</legend>
+                <p>
+                    <label class="form__label">
+                        <span class="form__labelText">Kwota w złotych - PLN*:</span>
+                        <input class="js-currencyAmount form__input" type="number" min="0" max="1000000000" step="0.01"
+                            required>
+                    </label>
+                </p>
+                <p>
+                    <label class="form__label">
+                        <span class="form__labelText">Waluta:</span>
+                        <select class="form__select js-selectedCurrency" name="currency">
+                            <option value="EUR">Euro - EUR</option>
+                            <option value="GBP">Funt brytyjski - GBP</option>
+                            <option value="USD">Dolar amerykański - USD</option>
+                            <option value="CHF">Frank szwajcarski - CHF</option>
+                        </select>
+                    </label>
+                </p>
+                <p class="form__result js-formResult">
+                    Otrzymasz: <strong class="js-result">N/A</strong><span class="js-currency"> waluty</span>
+                </p>
+            </fieldset>
+            <p>
+                <button type="submit" class="form__button">Przelicz!</button>
+            </p>
+        </form>
+
+        <div class="tableContainer">
+            <p>
+                <button class="table__button js-tableButton"><span class="js-buttonText">Ukryj</span> aktualne kursy
+                    walut</button>
+            </p>
+            <table class="table js-table">
+                <caption class="table__caption">Aktualne kursy walut</caption>
+                <tr class="table__row">
+                    <th class="table__cell table__cell--header" scope="col">Nazwa</th>
+                    <th class="table__cell table__cell--header" scope="col">Waluta</th>
+                    <th class="table__cell table__cell--header" scope="col">Kurs</th>
+                </tr>
+                <tr class="table__row">
+                    <th class="table__cell table__cell--header" scope="row">Euro</th>
+                    <td class="table__cell">EUR</td>
+                    <td class="table__cell js-euroExchangeRate">4.55</td>
+                </tr>
+                <tr class="table__row">
+                    <th class="table__cell table__cell--header" scope="row">Funt brytyjski</th>
+                    <td class="table__cell">GBP</td>
+                    <td class="table__cell js-poundExchangeRate">5.25</td>
+                </tr>
+                <tr class="table__row">
+                    <th class="table__cell table__cell--header" scope="row">Dolar amerykański</th>
+                    <td class="table__cell">USD</td>
+                    <td class="table__cell js-dollarExchangeRate">3.81</td>
+                </tr>
+                <tr class="table__row">
+                    <th class="table__cell table__cell--header" scope="row">Frank szwajcarski</th>
+                    <td class="table__cell">CHF</td>
+                    <td class="table__cell js-francExchangeRate">4.14</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 
