@@ -68,3 +68,14 @@
     background-color: hsl(158, 76%, 40%);
     outline: none;
 }
+
+.table__paragraph {
+    margin: 10px auto;
+    padding: 10px 5px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
