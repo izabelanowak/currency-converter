@@ -10,26 +10,20 @@
     };
 
     const convertCurrency = (amount, currency) => {
-        const euroExchangeRate = Number(document.querySelector(".js-euroExchangeRate").innerText);
-        const poundExchangeRate = Number(document.querySelector(".js-poundExchangeRate").innerText);
-        const dollarExchangeRate = Number(document.querySelector(".js-dollarExchangeRate").innerText);
-        const francExchangeRate = Number(document.querySelector(".js-francExchangeRate").innerText);
-
-        let exchangeRate;
+        const euroExchangeRate = +document.querySelector(".js-euroExchangeRate").innerText;
+        const poundExchangeRate = +document.querySelector(".js-poundExchangeRate").innerText;
+        const dollarExchangeRate = +document.querySelector(".js-dollarExchangeRate").innerText;
+        const francExchangeRate = +document.querySelector(".js-francExchangeRate").innerText;
 
         switch (currency) {
             case "EUR":
-                exchangeRate = euroExchangeRate;
-                return amount / exchangeRate;
+                return amount / euroExchangeRate;
             case "GBP":
-                exchangeRate = poundExchangeRate;
-                return amount / exchangeRate;
+                return amount / poundExchangeRate;
             case "USD":
-                exchangeRate = dollarExchangeRate;
-                return amount / exchangeRate;
+                return amount / dollarExchangeRate;
             case "CHF":
-                exchangeRate = francExchangeRate;
-                return amount / exchangeRate;
+                return amount / francExchangeRate;
         };
     };
 
